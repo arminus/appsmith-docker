@@ -1,0 +1,22 @@
+### Docker Setup for Appsmith > 1.8.5 and MongoDB  5.0.5 for Raspberry PI4/arm64
+
+Starting with 1.8.5, Appsmith requires MongoDB 5.x - unfortunately, there is no official support for MongoDB 5 for the Pi4/arm64 platform.
+
+There is however a community build of MongoDB 5 as documented [here](https://andyfelong.com/2021/08/mongodb-4-4-under-raspberry-pi-os-64-bit-raspbian64), this page also provides pre-built binaries.
+
+This "project" here tries to establish a custom docker compose which should eventually use an external MongoDB as outlined by Appsmith [here](https://docs.appsmith.com/getting-started/setup/instance-configuration/custom-mongodb-redis#custom-mongodb).
+
+Presently, this is work in progress and not yet working, i.e. Appsmith cannot yet connect to the MongoDB but reports 
+
+```
+appsmith    | ++ mongo --host mongodb+srv://mongodb/appsmith --quiet --eval 'rs.status().ok'
+appsmith    | + mongo_state=
+appsmith exited with code 132
+```
+
+Progress will be tracked on the issue tracker here.
+
+### Test Environment
+
+A Pi4 with 4GB RAM, Linux pi4 5.15.76-v8+ #1597 SMP PREEMPT Fri Nov 4 12:16:41 GMT 2022 aarch64 GNU/Linux
+

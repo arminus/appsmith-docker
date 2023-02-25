@@ -1,0 +1,8 @@
+data/
+stacks/
+libcrypto.so.1.1
+libssl.so.1.1
+mongo
+mongod
+mongos
+raspbian_mongodb_5.0.5.gz
