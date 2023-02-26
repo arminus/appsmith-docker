@@ -1,8 +1,9 @@
 data/
 stacks/
-libcrypto.so.1.1
-libssl.so.1.1
-mongo
-mongod
-mongos
-raspbian_mongodb_5.0.5.gz
+mongodb/libcrypto.so.1.1
+mongodb/libssl.so.1.1
+mongodb/mongo
+mongodb/mongod
+mongodb/mongos
+mongodb/raspbian_mongodb_5.0.5.gz
+appsmith/mongo

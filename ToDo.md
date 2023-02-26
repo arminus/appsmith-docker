@@ -1,0 +1,1 @@
+- MongoDB privileges: https://stackoverflow.com/questions/38921414/mongodb-what-are-the-default-user-and-password

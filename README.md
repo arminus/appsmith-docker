@@ -6,13 +6,14 @@ There is however a community build of MongoDB 5 as documented [here](https://and
 
 This "project" here tries to establish a custom docker compose which should eventually use an external MongoDB as outlined by Appsmith [here](https://docs.appsmith.com/getting-started/setup/instance-configuration/custom-mongodb-redis#custom-mongodb).
 
-Presently, this is work in progress and not yet working, i.e. Appsmith cannot yet connect to the MongoDB but reports 
+Presently, this is work in progress and requires 2 custom images:
 
-```
-appsmith    | ++ mongo --host mongodb+srv://mongodb/appsmith --quiet --eval 'rs.status().ok'
-appsmith    | + mongo_state=
-appsmith exited with code 132
-```
+- mongodb: based on arm64v8/mongo:5.0 - including 
+  - binaries from the article linked above
+  - libcrypto.so.1.1 and libssl.so.1.1 as copied from the local system
+- myappsmith: based on appsmith/appsmith-ce:latest - including
+  - fixed mongo binary
+  - disabled `appsmithctl check-replica-set` in the appsmith image entrypoint.sh (TBD [how to proceed](https://community.appsmith.com/t/appsmith-does-not-connect-to-external-mongodb-exited-with-code-132/2072/2?u=arminus)), also update patch entrypoint.sh from its [original location](https://github.com/appsmithorg/appsmith/blob/release/deploy/docker/entrypoint.sh)
 
 Progress will be tracked on the issue tracker here.
 

@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo "Building custom mongo5 image..."
+
+cd mongodb
+
 # https://andyfelong.com/2021/08/mongodb-4-4-under-raspberry-pi-os-64-bit-raspbian64/
 if [ ! -r raspbian_mongodb_5.0.5.gz ]; then
   wget https://andyfelong.com/downloads/raspbian_mongodb_5.0.5.gz
@@ -19,3 +23,12 @@ for LIB in $EXTRA_LIBS; do
 done
 
 docker build . -t mongo:5.0.5
+
+echo "Building custom appsmith image..."
+
+cd ../appsmith
+
+cp ../mongodb/mongo .
+chmod a+x ./mongo
+
+docker build . -t myappsmith
